@@ -1,0 +1,189 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Hostel student, staff, warden, or admin user profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "staff", "warden", "admin"] },
+        "roomNo": { "type": "string" },
+        "hostelName": { "type": "string" },
+        "phone": { "type": "string" },
+        "profilePic": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "Hostel mess menu item with nutritional values",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "day": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string", "enum": ["breakfast", "lunch", "snacks", "dinner"] },
+        "items": { "type": "string" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "carbs": { "type": "number" },
+        "fat": { "type": "number" },
+        "isSpecial": { "type": "boolean" },
+        "festivalName": { "type": "string" },
+        "status": { "type": "string", "enum": ["Planned", "Preparing", "Ready", "Served"] },
+        "quantityPrepared": { "type": "string" },
+        "timings": { "type": "string" }
+      },
+      "required": ["id", "day", "date", "type", "items"]
+    },
+    "Attendance": {
+      "title": "Attendance",
+      "description": "Daily meal attendance check-in for a student",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "roomNo": { "type": "string" },
+        "date": { "type": "string" },
+        "breakfast": { "type": "boolean" },
+        "lunch": { "type": "boolean" },
+        "snacks": { "type": "boolean" },
+        "dinner": { "type": "boolean" },
+        "markedAt": { "type": "string" }
+      },
+      "required": ["id", "studentId", "studentName", "date", "breakfast", "lunch", "snacks", "dinner", "markedAt"]
+    },
+    "InventoryItem": {
+      "title": "InventoryItem",
+      "description": "Mess ingredient or item in stock",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string", "enum": ["groceries", "vegetables", "dairy", "others"] },
+        "quantity": { "type": "number" },
+        "unit": { "type": "string" },
+        "minStock": { "type": "number" },
+        "lastPurchased": { "type": "string" },
+        "cost": { "type": "number" }
+      },
+      "required": ["id", "name", "category", "quantity", "unit", "minStock", "lastPurchased"]
+    },
+    "Feedback": {
+      "title": "Feedback",
+      "description": "Student meal feedback with scores and AI analysis",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "roomNo": { "type": "string" },
+        "date": { "type": "string" },
+        "mealType": { "type": "string", "enum": ["breakfast", "lunch", "snacks", "dinner"] },
+        "rating": { "type": "number" },
+        "review": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "sentiment": { "type": "string", "enum": ["Positive", "Neutral", "Negative"] },
+        "scores": {
+          "type": "object",
+          "properties": {
+            "taste": { "type": "number" },
+            "hygiene": { "type": "number" },
+            "quantity": { "type": "number" },
+            "variety": { "type": "number" },
+            "freshness": { "type": "number" }
+          }
+        }
+      },
+      "required": ["id", "studentId", "studentName", "date", "mealType", "rating", "review"]
+    },
+    "Complaint": {
+      "title": "Complaint",
+      "description": "Mess related student complaints and resolutions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "roomNo": { "type": "string" },
+        "date": { "type": "string" },
+        "subject": { "type": "string" },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["Pending", "In Progress", "Resolved"] },
+        "priority": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "response": { "type": "string" },
+        "respondedBy": { "type": "string" },
+        "respondedAt": { "type": "string" }
+      },
+      "required": ["id", "studentId", "studentName", "date", "subject", "description", "status", "priority"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "Warden/Admin mess notifications and updates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "date": { "type": "string" },
+        "author": { "type": "string" },
+        "role": { "type": "string" },
+        "type": { "type": "string", "enum": ["info", "warning", "festival", "holiday"] }
+      },
+      "required": ["id", "title", "content", "date", "author", "role", "type"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User notification alert",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "date": { "type": "string" },
+        "read": { "type": "boolean" },
+        "type": { "type": "string", "enum": ["menu", "festival", "complaint", "inventory", "announcement"] }
+      },
+      "required": ["id", "userId", "title", "content", "date", "read", "type"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles collection"
+    },
+    "/menus/{menuId}": {
+      "schema": "MenuItem",
+      "description": "Daily menu options collection"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": "Attendance",
+      "description": "Meal check-in records collection"
+    },
+    "/inventory/{inventoryId}": {
+      "schema": "InventoryItem",
+      "description": "Ingredients and stocks collection"
+    },
+    "/feedback/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "Student food feedbacks collection"
+    },
+    "/complaints/{complaintId}": {
+      "schema": "Complaint",
+      "description": "Complaints registry collection"
+    },
+    "/announcements/{announcementId}": {
+      "schema": "Announcement",
+      "description": "Warden announcements collection"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "User notification alerts collection"
+    }
+  }
+}

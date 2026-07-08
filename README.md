@@ -1,56 +1,20 @@
-# AI Hostel Food Management System
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-An AI-powered Hostel Food Management System designed to digitize and automate hostel mess operations. The application provides role-based access for Students, Staff, Wardens, and Administrators while integrating AI features for food recommendations, chatbot assistance, feedback analysis, and intelligent food planning.
+# Run and deploy your AI Studio app
 
-## Features
+This contains everything you need to run your app locally.
 
-- Student Registration & Authentication
-- Role-Based Login (Student, Staff, Warden, Admin)
-- Weekly & Daily Menu Management
-- Meal Attendance Tracking
-- Food Feedback System
-- AI Chatbot using Google Gemini AI
-- Voice Assistant Support
-- AI Food Recommendations
-- Seasonal Diet Suggestions
-- Food Requirement Prediction
-- Inventory Management
-- Festival Special Menu Planning
-- Food Quality Analysis
-- Monthly Reports & Analytics
-- Dashboard with Real-Time Statistics
-- Firebase Authentication
-- Cloud Firestore Database
-- Responsive Modern UI
+View your app in AI Studio: https://ai.studio/apps/60035610-2762-41aa-bf4a-bdc363b7f54c
 
-## Technologies Used
+## Run Locally
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- HTML5
-- CSS3
+**Prerequisites:**  Node.js
 
-### Backend
-- Node.js
-- Express.js
 
-### Database
-- Firebase Firestore
-
-### Authentication
-- Firebase Authentication
-
-### Artificial Intelligence
-- Google Gemini AI
-
-### Cloud Platform
-- Firebase
-
-### Deployment
-- Firebase Studio
-- Vercel (Optional)
-
-## Project Structure
-
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
