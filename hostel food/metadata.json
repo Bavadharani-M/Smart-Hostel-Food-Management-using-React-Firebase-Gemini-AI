@@ -1,6 +1,0 @@
-{
-  "name": "Hostel Food Management System",
-  "description": "A complete full-stack AI-powered Hostel Food Management System using React and Firebase.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
